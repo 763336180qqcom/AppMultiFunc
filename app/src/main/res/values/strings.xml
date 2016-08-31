@@ -15,6 +15,7 @@
     <string name="pgs">progressbar</string>
     <string name="sports">体育</string>
     <string name="sports_nba">NBA</string>
+<string name="sf">sf</string>
 <string name="json">json</string>
     <string name="sports_cba">CBA</string>
 </resources>

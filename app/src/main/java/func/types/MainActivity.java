@@ -3,6 +3,7 @@ package func.types;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -24,18 +25,19 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import func.ndk_.NdkActivity;
 import func.types.adapter.HomeListAdapter;
 import func.types.browser.BrowserActivity;
-import func.ndk_.NdkActivity;
 import func.types.json.JsonActivity;
 import func.types.socket_.SocketClientActivity;
 import func.types.ui.ProgressActivity;
-import func.types.variable_.Str_Ini;
+import func.types.ui.sf.SurfaceActivity;
+import func.types.variable_.Filter;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
@@ -102,13 +104,20 @@ public class MainActivity extends AppCompatActivity
             mLabelNames.add(getString(R.string.json));
             ++a;
         }
+        while (a < 40) {
+            mLabelNames.add(getString(R.string.sf));
+            ++a;
+        }
         mAdapter = new HomeListAdapter(mContext, mLabelNames);
     }
 
     private HomeListAdapter.CustomItemClickListener mListener = new HomeListAdapter.CustomItemClickListener() {
         @Override
         public void _click(View v, int position) {
-            Toast.makeText(mContext, "click:" + position, Toast.LENGTH_SHORT).show();
+            for (int i = 0; i < mRecyclerView.getChildCount(); i++) {
+                Random random = new Random();
+                mRecyclerView.getChildAt(i).findViewById(R.id.id_func).setBackgroundColor(Color.rgb(random.nextInt(255) + 1, random.nextInt(255) + 1, random.nextInt(255) + 1));
+            }
         }
 
         @Override
@@ -133,6 +142,10 @@ public class MainActivity extends AppCompatActivity
                 case "json":
                     Intent intent4 = new Intent(mContext, JsonActivity.class);
                     startActivity(intent4);
+                    break;
+                case "sf":
+                    Intent intent5 = new Intent(mContext, SurfaceActivity.class);
+                    startActivity(intent5);
                     break;
             }
         }
@@ -223,8 +236,12 @@ public class MainActivity extends AppCompatActivity
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab:
+                Snackbar.make(view, Filter.removeRedundantString("aabbbtqqdda"), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+/*
                 Snackbar.make(view, Str_Ini.OutPuts(), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+*/
                 break;
         }
     }

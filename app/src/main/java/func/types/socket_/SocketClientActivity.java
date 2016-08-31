@@ -20,7 +20,7 @@ public class SocketClientActivity extends AppCompatActivity {
     private TextView mTextView;
     private Button mButton;
     private ClientRunnable mRunnable;
-    private Handler MyHandler_SendUI = new Handler() {
+    private Handler MyHandler_ToUI = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == 0x123) {
@@ -34,7 +34,7 @@ public class SocketClientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_socket);
         iniViews();
-        mRunnable = new ClientRunnable(MyHandler_SendUI);
+        mRunnable = new ClientRunnable(MyHandler_ToUI);
         new Thread(mRunnable).start();
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
