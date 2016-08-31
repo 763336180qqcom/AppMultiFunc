@@ -36,6 +36,10 @@
             android:name=".socket_.SocketClientActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTop"/>
+        <activity
+            android:name=".json.JsonActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"/>
     </application>
 
 </manifest>

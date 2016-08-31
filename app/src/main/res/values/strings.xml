@@ -13,4 +13,8 @@
     <string name="action_settings">Settings</string>
     <string name="main">主界面</string>
     <string name="pgs">progressbar</string>
+    <string name="sports">体育</string>
+    <string name="sports_nba">NBA</string>
+<string name="json">json</string>
+    <string name="sports_cba">CBA</string>
 </resources>

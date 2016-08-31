@@ -32,6 +32,7 @@ import java.util.List;
 import func.types.adapter.HomeListAdapter;
 import func.types.browser.BrowserActivity;
 import func.ndk_.NdkActivity;
+import func.types.json.JsonActivity;
 import func.types.socket_.SocketClientActivity;
 import func.types.ui.ProgressActivity;
 import func.types.variable_.Str_Ini;
@@ -77,20 +78,28 @@ public class MainActivity extends AppCompatActivity
     private void iniData() {
         mLabelNames.clear();
         int a = 0;
-        while (a < 10) {
+        while (a < 5) {
             mLabelNames.add(getString(R.string.pgs));
             ++a;
         }
-        while (a < 20) {
+        while (a < 10) {
             mLabelNames.add(getString(R.string.start_browser));
             ++a;
         }
-        while (a < 30) {
+        while (a < 15) {
             mLabelNames.add(getString(R.string.ndk));
             ++a;
         }
-        while (a < 40) {
+        while (a < 20) {
             mLabelNames.add(getString(R.string.socket));
+            ++a;
+        }
+        while (a < 25) {
+            mLabelNames.add(getString(R.string.socket));
+            ++a;
+        }
+        while (a < 30) {
+            mLabelNames.add(getString(R.string.json));
             ++a;
         }
         mAdapter = new HomeListAdapter(mContext, mLabelNames);
@@ -120,6 +129,10 @@ public class MainActivity extends AppCompatActivity
                 case "socket":
                     Intent intent3 = new Intent(mContext, SocketClientActivity.class);
                     startActivity(intent3);
+                    break;
+                case "json":
+                    Intent intent4 = new Intent(mContext, JsonActivity.class);
+                    startActivity(intent4);
                     break;
             }
         }
